@@ -1,0 +1,93 @@
+﻿
+@model HomeVM
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/assets/css/index.css">
+    <title>Solar</title>
+</head>
+<body>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+               
+            <img src="~/assets/img/carousel-1.jpg" class="d-block w-100 sliderimg" alt="...">
+             
+            <div class="carousel-caption text d-none d-md-block">
+                <h5>SOLAR ENERGY</h5>
+                <p>Innovative Solar <br>Solution For Home</p>
+                 <button type="button" class="btn btnslider btn-light">Get A Quote</button>
+              </div>
+          </div>
+          <div class="carousel-item">
+            <img src="~/assets/img/carousel-2.jpg" class="d-block w-100 sliderimg" alt="...">
+            <div class="carousel-caption text d-none d-md-block">
+                <h5>SOLAR ENERGY</h5>
+                <p>Let The Sun Work<br> For Your Home</p>
+                <button type="button" class="btn btnslider btn-light">Get A Quote</button>
+              </div>
+          </div>
+         
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <header>
+        <nav class="navbar active navbars navbar-expand-lg ">
+            
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav navul">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Service</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Project</a>
+                  </li>
+                </ul>
+                <div class="container-fluid solarcont ">
+                    <a class="navbar-brand solar" href="#">SOLAR</a>
+                    <button class="navbar-toggler btnsolar" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <ul class="navbar-nav">
+                    <li class="nav-item navul">
+                      <a class="nav-link active" aria-current="page" href="#">Teams</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Fags</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Testimonial</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Contact</a>
+                    </li>
+                  </ul>
+              </div>
+           
+         
+          </nav>
+      </header>
+        @RenderBody()
+    @await Component.InvokeAsync("Footer");
+</body>
+</html>

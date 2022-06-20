@@ -1,0 +1,221 @@
+col-3{
+    .about-image{
+        width: 50%;
+        margin-top: 10px;
+    }
+}
+.about-text{
+    margin-top: 100px;
+    margin-left: 450px;
+    h5,h3{
+        color: #009cff!important;
+    }
+    h3{
+        font-size: 3.5rem;
+    }
+   h3{
+    color: #22395d;
+   }
+   p{
+    color: #818491;
+   }
+   .btnreadmore{
+    width: 170px;
+    color: #fff;
+    font-size: 20px;
+    height: 60px;
+    background-color: #009cff;
+   }
+}
+.services-text{
+    display: flex;
+    justify-content: center;
+    
+    h5{
+        margin-top: 20px;
+        color: #009cff;
+        display: flex;
+        justify-content: center;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    h1{
+        color: #22395d;
+        margin-top: 40px;
+    }
+}
+
+.product{
+    text-decoration: none;
+    font-size: 25px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-style: inherit;
+    background-color: #f3f6ff!important;
+    color: #22395d;
+
+}
+.serviceh1{
+    padding-left: 400px;
+    margin-left: 30px;
+    color: #22395d;
+}
+
+.gallery-text{
+    font-size: 5.5rem;
+    position: absolute;
+    top: 70px;
+}
+.galleryimagesc{
+    
+    filter: brightness(50%);
+}
+.carouseltext{
+    margin-top: 10px;
+    h5{
+        color: #009cff;
+    }
+    img{
+        
+        width: 30%;
+        height: 30%;
+    }
+    .btnphoto{
+        font-size: 25px;
+        color: #009cff;
+        
+    }
+    .text-gallery{
+        h5{
+            color: #009cff;
+        }
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        .carouselcap{
+            bottom: 10rem;
+        }
+    }
+}
+.card-gallery{
+    
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+    img{
+        width: 200px;
+        margin-left: 165px;
+        
+    }
+}
+.galleryimg{
+    margin-left: 10px;
+}
+.team-h1{
+    color: #22395d;
+    margin-left: 20px;
+}
+.teamtitle{
+    
+    color: #22395d;
+    font-size: 20px;
+}
+.teamsubtitle{
+    font-style: italic;
+    font-size: 20px;
+}
+.teamtext{
+    color: #818491;
+}
+.cardteam-2{
+    margin-top: 284px;
+    margin-left: -143px;
+}
+.cardteamtext2{
+    margin-left: 920px;
+    margin-top: -253px;
+}
+
+.cardteam-1{
+    margin-left: -52px;
+}
+.cardteam-3{
+    margin-top: 1px;
+    margin-left: -427px;
+}
+.teamcard-3 {
+    margin-left: -351px;
+}
+
+.cardteam-4{
+    margin-top: -3px;
+    margin-left: 619px;
+}
+.cardteamtext4{
+    margin-left: 545px;
+    margin-top: -2px;
+}
+
+.eightsentences{
+    padding-left: 201px;
+    margin-top: 30px;
+}
+
+.btncontact{
+    margin-left: -77px;
+}
+.btninfo{
+    margin-left: 480px;
+    
+    
+}
+.leftbtn{
+    width: 80px;
+    font-size: 25px;
+    color: #fff;
+}
+.rightbtn{
+    width: 80px;
+    font-size: 25px;
+    color: #fff;
+}
+.testimonial{
+    margin-top: 10px;
+}
+.imageterm{
+    width: 101px;
+    margin-left: 510px;
+    margin-top: 14px;
+}
+.cardterm{
+    margin-top: 20px;
+}
+
+.cardbodyterm{
+    text-align: center;
+}
+
+.send{
+    margin-left: 350px;
+    width: 20%;
+    height: 15%;
+}
+.subject{
+    width: 815px;
+}
+.message{
+    height: 200px;
+    width: 815px;
+}
+form{
+    margin-left: 100px;
+}
+.name{
+    width: 400px;
+}
+.email{
+    width: 400px;
+    margin-left: 414px;
+    margin-top: -54px;
+}

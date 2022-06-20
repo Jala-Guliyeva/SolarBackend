@@ -1,0 +1,282 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Index";
+}
+ <main>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="about-image">
+                            <img src="~/assets/img/@Model.abouts.Image" alt="">
+                        </div>
+                        </div>
+                           <div class="col-9">
+                            <div class="about-text">
+                                <h5>@Model.abouts.SubTitle</h5>
+                            <h3>@Model.abouts.Title</h3>
+                            <p>@Model.abouts.Desc</p>
+                            <button type="button" class="btn  btnreadmore btn-info">Read More</button>
+
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+            
+        </section>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="services-text">
+                            <h5 >SERVICES</h5><br>
+                        </div>
+                           
+                            <h1 class="serviceh1">What We Cover</h1>
+                    </div>
+                    @foreach (var item in Model.services)
+                   {
+                       
+                    <div class="col-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="~/assets/img/@item.Image" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <a href="#" class="product">@item.Title</a>
+                            </div>
+                          </div>
+                    </div>
+                   }
+                   
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+
+                        
+                        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            </div>
+                            <div class="carousel-inner carouseltext">
+                              <div class="carousel-item text-gallery active">
+                                <img src="~/assets/img/@Model.galleries.Image" class="d-block w-100 galleryimagesc" alt="...">
+                                <div class="carousel-caption carouselcap d-none d-md-block">
+                                  <h5>@Model.galleries.SubTitle</h5>
+                                  <h1>@Model.galleries.Title</h1>
+                                  <button type="button" class="btn btnphoto btn-light"><</button>
+                                  <button type="button" class="btn btnphoto btn-light">></button>
+                                </div>
+                              </div>
+                          </div>
+                    </div>
+                
+                
+                
+                    </div>
+                   @foreach (var item in Model.galleryPhotos)
+                  {
+                       <div class="col-2">
+                        <div class="card-gallery" >
+                          <a href="">  <img  src="~/assets/img/@item.Image" class="card-img-top galleryimg" alt="..."></a>
+                          </div>
+                    </div>
+                  }
+                    
+
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="services-text">
+                            <h5 >TEAM</h5><br>
+                        </div>
+                           
+                            <h1 class="team-h1" style="padding-left: 400px;" >Meet The Team</h1>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="card " style="width: 18rem;">
+                            <div class="card-body teambody">
+                              <h5 class="card-title teamtitle">Donald John</h5>
+                              <h6 class="card-subtitle teamsubtitle mb-2 text-muted">CEO & Founder</h6>
+                              <p class="card-text teamtext">Lorem elitr magna stet<br> rebum dolores sed. Est stet <br>labore est lorem lorem</p>
+                              <div class="position-relative mb-2">
+                                <a class="btn btn-outline-primary btn-square mr-1" href="https://www.free-css.com/free-css-templates">
+                                    <i class="fab fa-twitter"></i></a> 
+                                    <a class="btn btn-outline-primary btn-square mr-1" href="https://www.free-css.com/free-css-templates"><i class="fab fa-facebook-f"></i></a> 
+                                    <a class="btn btn-outline-primary btn-square mr-1" href="https://www.free-css.com/free-css-templates"><i class="fab fa-linkedin-in"></i></a></div>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card cardteam-1" style="width: 18rem;">
+                            <img src="~/assets/img/team-1.jpg" class="card-img-top team-1" alt="...">
+                           
+                          </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card cardteam-2"  style="width: 18rem;">
+                            <img src="~/assets/img/team-2.jpg" class="card-img-top team-2" alt="...">
+                           
+                          </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card cardteamtext2" style="width: 18rem;">
+                            <div class="card-body teambody-2">
+                              <h5 class="card-title teamtitle-2">Adam Phillips</h5>
+                              <h6 class="card-subtitle teamsubtitle-2 mb-2 text-muted">Engineer</h6>
+                              <p class="card-text teamtext-2">Lorem elitr magna stet<br> rebum dolores sed. Est stet <br>labore est lorem lorem</p>
+                              <div class="position-relative mb-2">
+                                <a class="btn btn-outline-primary btn-square mr-1" href="https://www.free-css.com/free-css-templates">
+                                    <i class="fab fa-twitter"></i></a> 
+                                    <a class="btn btn-outline-primary btn-square mr-1" href="https://www.free-css.com/free-css-templates"><i class="fab fa-facebook-f"></i></a> 
+                                    <a class="btn btn-outline-primary btn-square mr-1" href="https://www.free-css.com/free-css-templates"><i class="fab fa-linkedin-in"></i></a></div>
+                            </div>
+                          </div>
+                    </div>
+                    
+                    <div class="col-4">
+                        <div class="card teamcard-3 " style="width: 18rem;">
+                            <div class="card-body teambody-3">
+                              <h5 class="card-title teamtitle-3">Thomas Olsen</h5>
+                              <h6 class="card-subtitle teamsubtitle mb-2 text-muted">Engineer</h6>
+                              <p class="card-text teamtext">Lorem elitr magna stet<br> rebum dolores sed. Est stet <br>labore est lorem lorem</p>
+                              <div class="position-relative mb-2">
+                                <a class="btn btn-outline-primary btn-square mr-1" href="https://www.free-css.com/free-css-templates">
+                                    <i class="fab fa-twitter"></i></a> 
+                                    <a class="btn btn-outline-primary btn-square mr-1" href="https://www.free-css.com/free-css-templates"><i class="fab fa-facebook-f"></i></a> 
+                                    <a class="btn btn-outline-primary btn-square mr-1" href="https://www.free-css.com/free-css-templates"><i class="fab fa-linkedin-in"></i></a></div>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card cardteam-3" style="width: 18rem;">
+                            <img src="~/assets/img/team-3.jpg" class="card-img-top team-1" alt="...">
+                           
+                          </div>
+                    </div>
+                    
+                    <div class="col-4">
+                        <div class="card cardteam-4"  style="width: 18rem;">
+                            <img src="~/assets/img/team-4.jpg" class="card-img-top team-4" alt="...">
+                           
+                          </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card cardteamtext4" style="width: 18rem;">
+                            <div class="card-body teambody-4">
+                              <h5 class="card-title teamtitle-4">James Alien</h5>
+                              <h6 class="card-subtitle teamsubtitle-4 mb-2 text-muted">Engineer</h6>
+                              <p class="card-text teamtext-4">Lorem elitr magna stet<br> rebum dolores sed. Est stet <br>labore est lorem lorem</p>
+                              <div class="position-relative mb-2">
+                                <a class="btn btn-outline-primary btn-square mr-1" href="https://www.free-css.com/free-css-templates">
+                                    <i class="fab fa-twitter"></i></a> 
+                                    <a class="btn btn-outline-primary btn-square mr-1" href="https://www.free-css.com/free-css-templates"><i class="fab fa-facebook-f"></i></a> 
+                                    <a class="btn btn-outline-primary btn-square mr-1" href="https://www.free-css.com/free-css-templates"><i class="fab fa-linkedin-in"></i></a></div>
+                            </div>
+                          </div>
+                    </div>
+                    
+                 
+                </div>
+            </div>
+        </section>
+
+        <section class="faqs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="services-text">
+                            <h5 >FAQs</h5><br>
+                        </div>
+                           
+                            <h1 class="team-h1" style="padding-left: 384px;" >You Should Know</h1>
+                    </div>
+                    <div class="eightsentences">
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="container">
+                                    <div class="row row-cols-2">
+                                        <div class="col"><h3>Why Switch to Solar?</h3></div>
+                                        <div class="col"><h3>Why Choose Us?</h3></div>
+                                        @foreach (var item in Model.faqs)
+                                       {
+                                           <div class="col">@item.Desc</div>
+                                       }
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center pt-3 btncontact"><a class="btn btn-primary font-weight-bold py-3 px-5 mt-4 btn-scroll" href="#contact">Get A Quote</a></div>
+                    </div>
+                            
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="services-text">
+                            <h5 >TESTIMONIAL</h5><br>
+                        </div>
+                            <h1 class="team-h1" style="padding-left: 400px;" >Our Clients Say</h1>
+                           <div class="btninfo">
+                            <button type="button" class="btn leftbtn btn-info"><</button>
+                            <button type="button" class="btn rightbtn btn-info">></button>
+                           </div>
+                           <div class="card mb-3 cardterm">
+                            <img class="card-img-top imageterm" src="~/assets/img/@Model.clients.Image" alt="Card image cap">
+                            <div class="card-body cardbodyterm">
+                              <h5 class="card-title">@Model.clients.Desc</h5>
+                              <p class="card-text">@Model.clients.Name</p>
+                              <p class="card-text"><small class="text-muted">@Model.clients.Author</small></p>
+                            </div>
+                          </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+       
+          <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="services-text">
+                            <h5 >Contact</h5><br>
+                        </div>
+                            <h1 class="team-h1" style="padding-left: 420px;" >Get In Touch
+                            </h1>
+                    </div>
+                    <form>
+                      <div class="mb-3">
+                        <input type="email" class="form-control name"  placeholder="Your Name">
+                      </div>
+                      <div class="mb-3">
+                        <input type="email" class="form-control email"  placeholder="Your Email">
+                      </div>
+                      <div class="mb-3">
+                        <input type="text" class="form-control subject" placeholder="Subject">
+                      </div>
+                      <div class="mb-3">
+                        <input type="text" class="form-control message " placeholder="Message">
+                      </div>
+                     
+                      <button type="submit" class="btn btn-primary send">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+      </main>
