@@ -16,29 +16,28 @@
                         <tr>
                           <th>Count</th>
                           <th>Image</th>
-                          <th>Desc</th>
                           <th>Name</th>
                           <th>Author</th>
                           <th>Setting</th>
                         </tr>
-                      </thead> 
+                      </thead>
                       <tbody>
-                       @foreach (var item in Model) 
+                       @foreach (var item in Model)
                             {
                                 count++;
 
                            <tr>
                           <td>@count</td>
                           <td>
-                              <img src="~/img/@item.Image"/>
+                              <img src="~/assets/img/@item.Image"/>
                             
-                          <td>
-                              <td>@item.Desc</td>
+                          </td>
                               <td>@item.Name</td>
                               <td>@item.Author</td>
-                              <a class="btn btn-danger" asp-controller="Client" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                              <td> <a class="btn btn-danger" asp-controller="Client" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                               <a class="btn btn-primary" asp-controller="Client" asp-action="Update" asp-route-id="@item.Id">Update</a>
-                              <a class="btn btn-info" asp-controller="Client" asp-action="Detail" asp-route-id="@item.Id">Detail</a> 
+                              <a class="btn btn-info" asp-controller="Client" asp-action="Detail" asp-route-id="@item.Id">Detail</a> </td>
+                             
                           
                         </tr>
                           
