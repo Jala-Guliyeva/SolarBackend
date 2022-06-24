@@ -50,7 +50,7 @@ namespace SolarBackend
             {
             endpoints.MapControllerRoute(
                 "areas",
-                "{area:exists}/{controller=dashboard}/{action=Index}/{id?}"
+                "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
           );
                 endpoints.MapControllerRoute(
                     "default",

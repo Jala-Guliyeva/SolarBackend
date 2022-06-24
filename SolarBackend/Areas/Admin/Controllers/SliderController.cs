@@ -1,12 +1,12 @@
-﻿using FiorelloTask.Extentions;
-using FiorelloTask.Helpers;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using SolarBackend.DAL;
-using SolarBackend.Models;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using SolarBackend.DAL;
+using SolarBackend.Models;
 
 namespace SolarBackend.Areas.Admin.Controllers
 {
@@ -14,103 +14,121 @@ namespace SolarBackend.Areas.Admin.Controllers
     public class SliderController : Controller
     {
         private readonly AppDbContext _context;
-       
-        private IWebHostEnvironment _env;
-        public SliderController(AppDbContext context, IWebHostEnvironment env)
+
+        public SliderController(AppDbContext context)
         {
             _context = context;
-            _env = env;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Slider> sliders = _context.Sliders.ToList();
-            return View(sliders);
+            return View(await _context.Sliders.ToListAsync());
+        }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var slider = await _context.Sliders
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (slider == null)
+            {
+                return NotFound();
+            }
+
+            return View(slider);
         }
 
         public IActionResult Create()
         {
             return View();
         }
+
         [HttpPost]
-        [ValidateAntiForgeryToken] //jsda yazsaqbunusilmeliyik,yoxsaislemiir
-        public async Task<IActionResult> Create(Slider slider)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Id,Image,Title,Desc")] Slider slider)
         {
-            //validationstate-requiredolanlar
-            if (ModelState["Photo"].ValidationState == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
+            if (ModelState.IsValid)
             {
-                return View();
-
+                _context.Add(slider);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
-
-            if (!slider.Photo.IsImage())
-            {
-                ModelState.AddModelError("Photo", "Accept only image!");
-
-                return View();
-            }
-            if (slider.Photo.ImageSize(10000))
-            {
-                ModelState.AddModelError("Photo", "1mq yuxari olabilmez!");
-
-                return View();
-            }
-            //string path = @"C:\Users\TOSHIBA\Desktop\FiorelloAdminF\FiorelloTask\wwwroot\img\";
-
-            string fileName = await slider.Photo.SaveImage(_env, "img");
-            Slider newSlider = new Slider();
-            newSlider.Image = fileName;
-            await _context.Sliders.AddAsync(newSlider);
-            await _context.SaveChangesAsync();
-
-            return RedirectToAction("Index");
-        }
-        public async Task<IActionResult> Detail(int? id)
-        {
-            if (id == null) return NotFound();
-            Slider dbSlider = await _context.Sliders.FindAsync(id);
-            if (dbSlider == null) return NotFound();
-            return View(dbSlider);
-        }
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null) return NotFound();
-            Slider dbSlider = await _context.Sliders.FindAsync(id);
-            if (dbSlider == null) return NotFound();
-            Helper.DeleteFile(_env, "img", dbSlider.Image);
-            _context.Sliders.Remove(dbSlider);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
-
-
+            return View(slider);
         }
 
         public async Task<IActionResult> Update(int? id)
         {
-            if (id == null) return NotFound();
-
-            Slider dbSlider = await _context.Sliders.FindAsync(id);
-            if (dbSlider == null) return NotFound();
-
-            return View(dbSlider);
-
-
-
-        }
-        [HttpPost]
-        public async Task<IActionResult> Update(int? id, Slider slider)
-        {
-            if (!ModelState.IsValid)
+            if (id == null)
             {
-                return View();
+                return NotFound();
             }
-            Slider dbSlider = await _context.Sliders.FindAsync(id);
-            
-            if (dbSlider == null) return NotFound();
-            dbSlider.Title = slider.Title;
-            dbSlider.Desc = slider.Desc;
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            var slider = await _context.Sliders.FindAsync(id);
+            if (slider == null)
+            {
+                return NotFound();
+            }
+            return View(slider);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(int id, [Bind("Id,Image,Title,Desc")] Slider slider)
+        {
+            if (id != slider.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(slider);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!SliderExists(slider.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(slider);
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var slider = await _context.Sliders
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (slider == null)
+            {
+                return NotFound();
+            }
+
+            return View(slider);
+        }
+
+        
+
+        private bool SliderExists(int id)
+        {
+            return _context.Sliders.Any(e => e.Id == id);
         }
     }
 }

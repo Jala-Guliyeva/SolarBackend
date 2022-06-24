@@ -11,19 +11,18 @@ using SolarBackend.Models;
 namespace SolarBackend.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class AboutController : Controller
+    public class BiosController : Controller
     {
         private readonly AppDbContext _context;
 
-        public AboutController(AppDbContext context)
+        public BiosController(AppDbContext context)
         {
             _context = context;
         }
 
-       
         public async Task<IActionResult> Index()
         {
-            return View(await _context.About.ToListAsync());
+            return View(await _context.Bios.ToListAsync());
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -33,33 +32,35 @@ namespace SolarBackend.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var about = await _context.About
+            var bio = await _context.Bios
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (about == null)
+            if (bio == null)
             {
                 return NotFound();
             }
 
-            return View(about);
+            return View(bio);
         }
 
         public IActionResult Create()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Image,SubTitle,Title,Desc")] About about)
+        public async Task<IActionResult> Create([Bind("Id,Location,Number,Email,Author")] Bio bio)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(about);
+                _context.Add(bio);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(about);
+            return View(bio);
         }
 
+        
         public async Task<IActionResult> Update(int? id)
         {
             if (id == null)
@@ -67,19 +68,19 @@ namespace SolarBackend.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var about = await _context.About.FindAsync(id);
-            if (about == null)
+            var bio = await _context.Bios.FindAsync(id);
+            if (bio == null)
             {
                 return NotFound();
             }
-            return View(about);
+            return View(bio);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(int id, [Bind("Id,Image,SubTitle,Title,Desc")] About about)
+        public async Task<IActionResult> Update(int id, [Bind("Id,Location,Number,Email,Author")] Bio bio)
         {
-            if (id != about.Id)
+            if (id != bio.Id)
             {
                 return NotFound();
             }
@@ -88,12 +89,12 @@ namespace SolarBackend.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(about);
+                    _context.Update(bio);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AboutExists(about.Id))
+                    if (!BioExists(bio.Id))
                     {
                         return NotFound();
                     }
@@ -104,7 +105,7 @@ namespace SolarBackend.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(about);
+            return View(bio);
         }
 
         public async Task<IActionResult> Delete(int? id)
@@ -114,22 +115,20 @@ namespace SolarBackend.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var about = await _context.About
+            var bio = await _context.Bios
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (about == null)
+            if (bio == null)
             {
                 return NotFound();
             }
 
-            return View(about);
+            return View(bio);
         }
 
-       
-      
 
-        private bool AboutExists(int id)
+        private bool BioExists(int id)
         {
-            return _context.About.Any(e => e.Id == id);
+            return _context.Bios.Any(e => e.Id == id);
         }
     }
 }

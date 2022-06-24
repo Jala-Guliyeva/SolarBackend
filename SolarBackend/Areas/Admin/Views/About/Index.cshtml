@@ -1,54 +1,53 @@
 ﻿@model IEnumerable<About>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-    int count = 0;
 }
- <div class="row">
-            <div class="col-lg-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">About Table</h4>
-                  <a class="btn btn-success" asp-controller="About" asp-action="Create" >Create</a> 
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>Count</th>
-                          <th>Image</th>
-                          <th>SubTitle</th>
-                          <th>Title</th>
-                          <th>Setting</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                       @foreach (var item in Model)
-                            {
-                                count++;
-
-                           <tr>
-                          <td>@count</td>
-                          <td>
-                              <img src="~/assets/img/@item.Image"/>
-                            
-                          </td>
-                              <td>@item.Title</td>
-                              <td>@item.SubTitle</td>
-                              <td> <a class="btn btn-danger" asp-controller="About" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                              <a class="btn btn-primary" asp-controller="About" asp-action="Update" asp-route-id="@item.Id">Update</a>
-                              <a class="btn btn-info" asp-controller="About" asp-action="Detail" asp-route-id="@item.Id">Detail</a> </td>
-                             
-                          
-                        </tr>
-                          
-                      }
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          
-          </div>
 
 
+<p>
+    <a asp-action="Create" asp-controller="About">Create </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desc)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

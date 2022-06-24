@@ -33,8 +33,8 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "3.1.26",
           "Microsoft.EntityFrameworkCore.Design": "3.1.26",
-          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.26",
-          "Microsoft.EntityFrameworkCore.Tools": "3.1.26",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.25",
+          "Microsoft.EntityFrameworkCore.Tools": "3.1.25",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.5",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
@@ -706,22 +706,22 @@
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/3.1.26": {
+      "Microsoft.EntityFrameworkCore.SqlServer/3.1.25": {
         "dependencies": {
           "Microsoft.Data.SqlClient": "1.1.3",
           "Microsoft.EntityFrameworkCore.Relational": "3.1.26"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {
-            "assemblyVersion": "3.1.26.0",
-            "fileVersion": "3.100.2622.27307"
+            "assemblyVersion": "3.1.25.0",
+            "fileVersion": "3.100.2522.21812"
           }
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Tools/3.1.26": {
+      "Microsoft.EntityFrameworkCore.Tools/3.1.25": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "3.1.26"
         }
@@ -3958,19 +3958,19 @@
       "path": "microsoft.entityframeworkcore.relational/3.1.26",
       "hashPath": "microsoft.entityframeworkcore.relational.3.1.26.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.SqlServer/3.1.26": {
+    "Microsoft.EntityFrameworkCore.SqlServer/3.1.25": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-A+f/qLNoZbKLIteMbVOI44fz/JL8Sn084yQ0RTbrzSNybYsigRcqyOeZYNBesbQoKXBdeVM2HRwiihu8S9TE9A==",
-      "path": "microsoft.entityframeworkcore.sqlserver/3.1.26",
-      "hashPath": "microsoft.entityframeworkcore.sqlserver.3.1.26.nupkg.sha512"
+      "sha512": "sha512-WSZBuDW8KNemgC0XMDAq1rEIzDvW/BMDr7t+iYAZhNIDpRD3KJGQsaO5rGtW+E6hjbX6NTni7pREsBnIJfDXIA==",
+      "path": "microsoft.entityframeworkcore.sqlserver/3.1.25",
+      "hashPath": "microsoft.entityframeworkcore.sqlserver.3.1.25.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Tools/3.1.26": {
+    "Microsoft.EntityFrameworkCore.Tools/3.1.25": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-dWlLKLAG4ZnlmSyjgHvgR5AjBjC+GdO2Tpr3DbCaoyxsq/UxYd2I7mACgLazLUaURof+gerlMyMHUZjPHJuA5Q==",
-      "path": "microsoft.entityframeworkcore.tools/3.1.26",
-      "hashPath": "microsoft.entityframeworkcore.tools.3.1.26.nupkg.sha512"
+      "sha512": "sha512-GlynMdJPCfLTTZA24gaPeaDOJm/FGQA9TovXQ1xdzUorP6GYtAymGbfMTGLsdQX8PMwT13LnaH/O6EfV6UA0Xw==",
+      "path": "microsoft.entityframeworkcore.tools/3.1.25",
+      "hashPath": "microsoft.entityframeworkcore.tools.3.1.25.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/3.1.26": {
       "type": "package",
